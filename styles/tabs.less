@@ -1,0 +1,95 @@
+@modified-icon-width: 8px;
+@tab-top-padding: 0px;
+@tab-bottom-border-height: 5px;
+@tab-border: 1px solid @tab-border-color;
+@tab-max-width: 160px;
+
+.tab-bar {
+  height: @tab-height;
+  background: @tab-bar-background-color;
+  padding: 0 10px 0 0px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    position: relative;
+    top: @tab-top-padding;
+    max-width: @tab-max-width;
+    height: @tab-height;
+    line-height: @tab-height;
+    padding: 0 6px;
+    color: @text-color;
+
+    transition: color .1s ease-in;
+    background-color: @tab-bar-tab-background-color;
+
+    .close-icon {
+      right: 6px;
+      z-index: 3;
+      text-align: right;
+      line-height: @tab-height;
+      color: @text-color;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    &.modified:not(:hover) .close-icon {
+      right: 6px;
+      top: @tab-height/2 - @modified-icon-width/2 + 1px;
+      width: @modified-icon-width;
+      height: @modified-icon-width;
+    }
+
+    &.modified:hover .close-icon:hover {
+      color: @text-color-highlight;
+    }
+
+    .title {
+      position: relative;
+      z-index: 1;
+      padding-right: 10px;
+    }
+  }
+
+  .tab.active {
+    z-index: 1;
+    color: @text-color-highlight;
+    height: @tab-height + 1px;
+    background: fade(lighten(@base-background-color, 30%), 30%);
+    border-bottom: 3px solid @text-color-info;
+    transition: border-color 0.3s ease;
+
+    .close-icon {
+      line-height: @tab-height - 1px;
+      color: @text-color;
+    }
+  }
+
+  .tab:hover {
+    color: @text-color-highlight;
+    background: fade(lighten(@base-background-color, 35%), 30%);
+  }
+
+  .tab.active:hover .close-icon {
+    color: @text-color;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .placeholder {
+    height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+    margin-left: -9px; // center between tabs
+    pointer-events: none;
+    &:after {
+      top: @tab-height + @tab-top-padding + @tab-bottom-border-height - 2px;
+    }
+  }
+}
