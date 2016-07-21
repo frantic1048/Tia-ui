@@ -2,6 +2,8 @@
 
 An edge-less UI theme for Atom.
 
+![preview](https://i.imgur.com/XuCeIN6.png)
+
 This theme is in early stage. Don't use.
 
 TODO:
