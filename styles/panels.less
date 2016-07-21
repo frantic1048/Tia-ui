@@ -1,0 +1,105 @@
+@import "ui-mixins";
+@import "ui-variables";
+@import "buttons";
+
+.panel {
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+}
+
+atom-panel, .tool-panel {
+  .text(normal);
+  position: relative;
+
+  background-color: @tool-panel-background-color;
+
+  &.bottom, &.panel-bottom,
+  &.footer, &.panel-footer {
+  }
+
+  &.left, &.panel-left {
+  }
+
+  &.right, &.panel-right {
+  }
+}
+
+.inset-panel {
+  position: relative;
+  background-color: @inset-panel-background-color;
+}
+
+.is-blurred {
+  atom-panel,
+  .inset-panel {
+  }
+}
+
+.panel-heading {
+  .text(normal);
+
+  border-bottom: 1px solid @panel-heading-border-color;
+  border-top: 1px solid fadein(@background-color-highlight, 10%);
+
+  background-color: transparent;
+
+  .btn {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    @bg: lighten(@button-background-color, 10%);
+    @hover: lighten(@button-background-color-hover, 10%);
+    @selected: lighten(@button-background-color-selected, 10%);
+    @text: lighten(@text-color, 10%);
+    .btn-background(@bg, @hover, @selected, @text);
+  }
+}
+
+/**
+ * Status bar
+ * normally in foot panel
+ */
+status-bar {
+  .status-bar-left,
+  .status-bar-right,
+  .deprecation-cop-status,
+  linter-bottom-container {
+    display: flex;
+    align-items: center;
+  }
+
+  linter-bottom-container {
+    linter-bottom-tab {
+      background: @tab-bar-tab-background-color;
+      border: none;
+      border-bottom: 2px solid @tab-bar-tab-background-color;
+      &.active {
+        background: fade(lighten(@base-background-color, 30%), 30%);
+        border-bottom: 2px solid @text-color-info;
+        transition: border-color 0.2s ease;
+      }
+      &:active {
+        border-color: fade(lighten(@base-background-color, 60%), 80%);
+      }
+    }
+    linter-bottom-status {
+      height: 16px;
+    }
+  }
+
+  // Git status
+  [is="status-bar-git"] {
+    display: flex;
+    align-items: center;
+    .git-branch {
+      display: flex;
+      align-items: center;
+    }
+    .git-status {
+      height: 26px;
+      line-height: 26px;
+    }
+  }
+}

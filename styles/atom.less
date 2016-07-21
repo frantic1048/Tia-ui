@@ -1,0 +1,34 @@
+@import "ui-variables";
+
+* {
+	box-sizing: border-box;
+}
+
+*::selection {
+	background:fade(lighten(@background-color-info, 20%), 25%);
+}
+
+atom-workspace {
+	font-family: @font-family;
+	.background(window);
+}
+
+.scrollbars-visible-always {
+  /deep/ ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  /deep/ ::-webkit-scrollbar-track,
+  /deep/ ::-webkit-scrollbar-corner {
+		opacity: 0;
+  }
+
+  /deep/ ::-webkit-scrollbar-thumb {
+    background-color: @scrollbar-color;
+		transition: all 0.3s ease;
+		&:hover{
+	    background-color: @scrollbar-color-active;
+	  }
+  }
+}
