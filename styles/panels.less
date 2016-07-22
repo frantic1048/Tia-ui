@@ -4,8 +4,6 @@
 
 .panel {
   &.bordered {
-    border: 1px solid @base-border-color;
-    border-radius: @component-border-radius;
   }
 }
 
@@ -70,6 +68,11 @@ status-bar {
     align-items: center;
   }
 
+  .flexbox-repaint-hack {
+    display: flex;
+    justify-content: space-between;
+  }
+
   linter-bottom-container {
     linter-bottom-tab {
       background: @tab-bar-tab-background-color;
@@ -77,7 +80,7 @@ status-bar {
       border-bottom: 2px solid @tab-bar-tab-background-color;
       &.active {
         background: fade(lighten(@base-background-color, 30%), 30%);
-        border-bottom: 2px solid @text-color-info;
+        border-bottom: 2px solid @background-color-info;
         transition: border-color 0.2s ease;
       }
       &:active {
@@ -101,5 +104,12 @@ status-bar {
       height: 26px;
       line-height: 26px;
     }
+  }
+
+  // package update view
+  .package-updates-status-view {
+    display: flex;
+    padding-left: 8px;
+    padding-right: 3px;
   }
 }

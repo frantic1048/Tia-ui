@@ -3,8 +3,7 @@
 atom-panel.modal, .overlay {
   color: @text-color;
   background-color: @overlay-background-color;
-  padding: @component-padding;
-  border: 1px solid @overlay-border-color;
+  padding: 0px;
   box-shadow: 0 0 10px @base-border-color;
   border-radius: @component-border-radius;
 
@@ -15,11 +14,10 @@ atom-panel.modal, .overlay {
   .select-list ol.list-group,
   &.select-list ol.list-group {
 
-    background-color: lighten(@overlay-background-color, 3%);
+    background-color: @overlay-background-color;
 
     li {
       padding: @component-padding;
-      border-bottom: 1px solid @overlay-background-color;
 
       &.two-lines { padding: @component-padding/2 @component-padding; }
 

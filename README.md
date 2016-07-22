@@ -2,29 +2,21 @@
 
 An edge-less UI theme for Atom.
 
-![preview](https://i.imgur.com/XuCeIN6.png)
+**Preview - [Restia] background** :
 
-This theme is in early stage. Don't use.
+[Restia]: http://frantle.deviantart.com/art/Restia-Ashdoll-485496857
 
-TODO:
+![preview_restia_background](https://i.imgur.com/1w3ZzTW.jpg)
 
-- button style
-- cursor style
-- linter inline notify style
-- setting options support
-- ヾ(ﾟ∀ﾟ○)ﾂ
+**Preview - Solid background** :
 
----
+![preview_solid_background](https://i.imgur.com/YgVLsUA.png)
 
-Ok, you really want to use now ?
-
-```bash
-apm install frantic1048/Tia-ui
-```
+# Usage
 
 Enable Tia ui theme in Atom settings.
 
-Add follow line to your custom stylesheet, replace `<path to your loving image>` as you want. If needed, also add background-<option> to perfectly fit your flavor:
+Add follow lines to your custom stylesheet, replace `<path to your loving image>` as you want. If needed, also add `background-<option>` rules to perfectly fit your flavor:
 
 ```less
 atom-workspace {
