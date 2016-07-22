@@ -4,21 +4,35 @@
 .btn-background (@color, @hover-color, @selected-color, @text-color) {
   color: @text-color;
   background-color: transparent;
-  background-image: -webkit-linear-gradient(@color, darken(@color, 5%));
+  background-image: linear-gradient(to bottom, fade(@color, 25%), fade(darken(@color, 5%), 25%));
+  background-clip: border-box;
+  border-bottom: 2px solid transparent;
 
   &:focus {
     color: @text-color;
+    outline: none !important;
   }
+
   &:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(@hover-color, darken(@hover-color, 5%));
+    background-color: transparent;
+    border-color: transparent;
+    background-image: linear-gradient(to bottom, fade(@hover-color, 25%), fade(darken(@hover-color, 5%), 25%));
   }
+
+  &:active {
+    background-image: linear-gradient(to bottom, fade(@hover-color, 25%), fade(darken(@hover-color, 5%), 25%));
+    border-bottom-color: lighten(@background-color-info, 40%);
+  }
+
   &.selected,
   &.selected:hover {
     color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(darken(@selected-color, 5%), @selected-color);
+    border-bottom-color: @background-color-info;
+    transition: border-color 0.3s ease;
+    background-image: linear-gradient(to bottom, fade(darken(@selected-color, 5%), 25%), fade(@selected-color, 25%));
     &:hover {
-      background-image: -webkit-linear-gradient(@selected-color, darken(@selected-color, 5%));
+      background-image: linear-gradient(to bottom, fade(@selected-color, 25%), fade(darken(@selected-color, 5%), 25%));
     }
   }
 }
@@ -32,6 +46,10 @@
 
 .btn {
   .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+}
+
+.btn.btn-default {
+  .btn-variant(@button-background-color);
 }
 
 .btn.btn-primary {

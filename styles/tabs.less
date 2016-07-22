@@ -54,6 +54,12 @@
       position: relative;
       z-index: 1;
       padding-right: 10px;
+      &.title.icon::before {
+        font-size: @modified-icon-width;
+        margin-right: 4px;
+        width: @modified-icon-width;
+        height: @modified-icon-width;
+      }
     }
   }
 
@@ -61,8 +67,9 @@
     z-index: 1;
     color: @text-color-highlight;
     height: @tab-height + 1px;
-    background: fade(lighten(@base-background-color, 30%), 30%);
-    border-bottom: 3px solid @text-color-info;
+    background: fade(lighten(@base-background-color,  30%), 30%);
+
+    border-bottom: 3px solid @background-color-info;
     transition: border-color 0.3s ease;
 
     .close-icon {
