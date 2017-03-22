@@ -1,7 +1,7 @@
 {
   "name": "Tia-ui",
   "theme": "ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An edge-less UI theme for Atom",
   "license": "WTFPL",
   "repository": "https://github.com/frantic1048/Tia-ui",
